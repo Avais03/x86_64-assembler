@@ -26,7 +26,7 @@ blocs8_impossible:
 while_leftover:
 	cmp	rax, rdi 			// i ? N
 	je	end 				// i == N -> end of loop
-    vmovss	xmm1, DWORD PTR [rsi+rax*4] 	// xmm1 = A[i]
+    	vmovss	xmm1, DWORD PTR [rsi+rax*4] 	// xmm1 = A[i]
 	vmulss	xmm1, xmm1, DWORD PTR [rdx+rax*4] // xmm1 = A[i] * B[i]
 	vaddss 	xmm2, xmm2, xmm1 		// dp(N-N%8, i-1) += A[i] * B[i]
 	inc	rax 				// ++i
